@@ -1,0 +1,23 @@
+description: "Project "
+projectType: "standard"
+standardRoles:
+  admin: abc
+additionalRoles: {}
+destinations:
+  - name: '*'
+    namespace: 'sbx-clusters'
+    server: '*'
+sourceRepos:
+syncWindows:
+  - kind: allow
+    schedule: '* * * * *'
+    duration: 1h
+    applications:
+    - '*-sbx-*'
+    namespaces:
+    - 'abc'
+    manualSync: true
+clusterResourceWhitelist: []
+namespaceResourceWhitelist:
+  - group: '*'
+    kind: '*'
